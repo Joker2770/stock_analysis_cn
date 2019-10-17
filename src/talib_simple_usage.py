@@ -1,6 +1,6 @@
 #!/usr/bin/python3.6
 # -*- coding: utf8 -*-
-# -*- date: 2018/12/14 -*-
+# -*- date: 2019/10/17 -*-
 # Author:joker2770
 
 #先引入后面可能用到的包（package）
@@ -16,6 +16,10 @@ mpl.rcParams['axes.unicode_minus']=False
 import talib as ta
 #获取交易数据用于示例分析
 import tushare as ts
+
+#1.2.48
+print(ts.__version__)
+
 ###################################################
 '''
 股票代码
@@ -63,7 +67,7 @@ df_ma=pd.DataFrame(df.close)
 for i in range(len(types)):
     df_ma[types[i]]=ta.MA(df.close,timeperiod=5,matype=i)
 df_ma.tail()
-df_ma.loc[start_time:].plot(figsize=(16,6))
+df_ma.loc[start_time:].plot(figsize=(12,6))
 ax = plt.gca()
 ax.spines['right'].set_color('none')
 ax.spines['top'].set_color('none')
@@ -96,7 +100,7 @@ N=[5,30,120,250]
 for i in N:
     df['ma_'+str(i)]=ta.EMA(df.close,timeperiod=i)
 df.tail()
-df.loc[start_time:,['close','ma_5','ma_30','ma_120','ma_250']].plot(figsize=(16,6))
+df.loc[start_time:,['close','ma_5','ma_30','ma_120','ma_250']].plot(figsize=(12,6))
 ax = plt.gca()
 ax.spines['right'].set_color('none')
 ax.spines['top'].set_color('none')
