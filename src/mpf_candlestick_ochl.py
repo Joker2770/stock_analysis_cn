@@ -30,7 +30,7 @@ print(ts.__version__)
 '''
 请到tusahre pro官网获取token
 '''
-token='036c29c2e44d587268a0c1f0a5fcd10dbf3c144dbc367da3f2237bed'
+token='token号'
 ts.set_token(token)
 pro = ts.pro_api(token)
 ################################################################
